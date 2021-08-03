@@ -31,7 +31,7 @@ fitness投稿削除機能|投稿をDBから削除するため。|ログイン中
 # ローカルでの動作方法
 
 # テーブル設計
-![Image from Gyazo](https://i.gyazo.com/4491653df6f28299c9d20679639f41b5.png)
+[![Image from Gyazo](https://i.gyazo.com/ecd3a88d1c60a78e5d973f86e02de9ce.png)](https://gyazo.com/ecd3a88d1c60a78e5d973f86e02de9ce)
 ## users テーブル
 | Column                | Type   | Options      |
 |-----------------------|--------|--------------|
@@ -40,7 +40,7 @@ fitness投稿削除機能|投稿をDBから削除するため。|ログイン中
 | encrypted_password    | string | null: false  |
 | last_name             | string | null: false  |
 | first_name            | string | null: false  |
-
+| profile               | text   | null: false  |
 ### Association
 - has_many :room_users
 - has_many :rooms, through: :room_users
