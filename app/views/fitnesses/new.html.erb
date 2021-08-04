@@ -10,7 +10,6 @@
 
     <%= render 'shared/error_messages', model: f.object %>
 
-    <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">
         タイトル
@@ -25,9 +24,6 @@
         <%= f.text_area :info, class:"items-text", id:"item-info", placeholder:"例）正しい食事とは人それぞれ違うものだ。なぜなら人には違った目的があるからである。自分にとっての正しい食事は自分にしかわからない。自分がどうなりたいかをしっかりと決めることが正しい食事をする上での大前提である。" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
-    <%# /商品名と商品説明 %>
-
-    <%# 商品の詳細 %>
     <div class="items-detail">
       
       <div class="form">
@@ -43,19 +39,10 @@
         <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class:"select-box", id:"fitness-level"}) %>
       </div>
     </div>
-    <%# /商品の詳細 %>
-
-    
-
-    
-
-    
-    <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "投稿する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
-    <%# /下部ボタン %>
   </div>
   <% end %>
 
