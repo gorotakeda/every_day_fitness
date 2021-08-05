@@ -1,7 +1,7 @@
 class FitnessesController < ApplicationController
   before_action :authenticate_user!, except: :index
   def index
-    
+    @fitnesses = Fitness.includes(:user).order('created_at DESC')
   end
 
   def new
