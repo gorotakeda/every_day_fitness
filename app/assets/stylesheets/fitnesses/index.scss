@@ -256,8 +256,10 @@ a {
 }
 
 .item-img {
-  width: 33vh;
-  height: 33vh;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 20px;
 }
 
 .sold-out {

@@ -1,10 +1,13 @@
 class User < ApplicationRecord
+  has_one_attached :image
+  has_many :fitnesses
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
          with_options presence: true do
+           validates :image
            validates :nickname
            validates :profile
            with_options format: { with: /\A[ぁ-んァ-ン一-龥々ー]+\z/, message: 'is invalid. Input full-width characters.' } do
