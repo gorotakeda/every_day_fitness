@@ -1,0 +1,48 @@
+
+<header class="items-sell-header">
+    <%= link_to image_tag('danberu.png' , size: '185x100'), "/" %>
+  </header>
+<div class="item-show">
+  <div class="item-box">
+    <%= link_to image_tag(current_user.image, class: "item-img-user" ), "#" %>
+    <div class="item-explain-box">
+      <span><%= @user.nickname + "さんの情報" %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+      <tr>
+        <tr>
+          <th class="detail-item">ニックネーム</th>
+          <td class="detail-value"><%= @user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">プロフィール</th>
+          <td class="detail-value"><%= @user.profile %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class='item-contents'>
+    <div class="subtitle" >
+      <%= @user.nickname + "さんの投稿一覧"%>
+    </div>
+    <ul class='item-lists'>
+      <% @fitnesses.each do |fitness|%>
+      <li class='list'>
+      <%= link_to fitness_path(fitness.id), method: :get do %>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= fitness.title %>
+          </h3>
+          <h3 class='item-name'>
+            <%= fitness.user.nickname %>
+          </h3>
+          <div class='item-price'>
+            <span><%= fitness.category.name %><br><%= fitness.level.name %></span>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
+
+<%= render "shared/footer" %>
