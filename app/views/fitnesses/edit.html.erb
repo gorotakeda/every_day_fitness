@@ -1,0 +1,64 @@
+<%# cssは商品出品のものを併用しています。
+app/assets/stylesheets/items/new.css %>
+
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%= link_to image_tag('danberu.png' , size: '185x100'), "/" %>
+  </header>
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">投稿内容入力</h2>
+    <%= form_with model: @fitness, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <%# 商品名と商品説明 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        タイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          投稿文
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :info, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+
+    <%# 商品の詳細 %>
+    <div class="items-detail">
+      <div class="weight-bold-text">商品の詳細</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <div class="weight-bold-text">
+          商品の状態
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
+      </div>
+    </div>
+    <div class="sell-btn-contents">
+      <%= f.submit "変更する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', "#", class:"back-btn" %>
+    </div>
+  </div>
+  <% end %>
+
+  <footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">EVERY DAY FITNESS 利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <%= link_to image_tag('danberu.png' , size: '185x100'), "/" %>
+    <p class="inc">
+      ©︎EVERY DAY FITNESS,Inc.
+    </p>
+  </footer>
+</div>
