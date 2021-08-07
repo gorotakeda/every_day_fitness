@@ -33,7 +33,7 @@
        <%= link_to "削除", fitness_path(@fitness.id), method: :delete, class:"item-destroy" %>
      <% end %>
     <% end %>
-
+    <%= link_to  @fitness.user.nickname + "さんの投稿一覧ページはこちら" , user_path(@fitness.user.id), class: "item-red-btn"  %>
     <div class="option">
       <div class="favorite-btn">
         <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>

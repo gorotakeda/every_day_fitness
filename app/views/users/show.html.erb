@@ -4,7 +4,7 @@
   </header>
 <div class="item-show">
   <div class="item-box">
-    <%= link_to image_tag(current_user.image, class: "item-img-user" ), "#" %>
+    <%= link_to image_tag(@user.image, class: "item-img-user" ), "#" %>
     <div class="item-explain-box">
       <span><%= @user.nickname + "さんの情報" %></span>
     </div>
