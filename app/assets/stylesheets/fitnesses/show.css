@@ -11,7 +11,7 @@
 
 .item-box {
   background-color: #FFF;
-  width: 70vw;
+  width: 100vw;
   min-width: 1200px;
   padding: 10vh 15vw;
   display: flex;
@@ -20,10 +20,15 @@
 }
 
 .item-box>.name {
-  text-align: center;
-  font-weight: bold;
   font-size: 25px;
+  color: #364e96;/*文字色*/
+  border: solid 3px #364e96;/*線色*/
+  padding: 0.5em;/*文字周りの余白*/
+  border-radius: 0.5em;/*角丸*/
+  margin-bottom: 30px;
 }
+
+
 
 .item-box-img {
   height: 50vh;
@@ -65,7 +70,7 @@
 }
 
 .item-destroy {
-  background-color: lightgray;
+  background-color: #f1f8ff;
   text-align: center;
   font-size: 24px;
   color: black;
@@ -80,15 +85,20 @@
 }
 
 .detail-table {
-  margin-bottom: 30px;
-  width: 100%;
+  background: #FFF;
+  box-shadow: 0px 0px 0px 10px #f1f8ff;/*線の外側*/
+  border: dashed 2px #668ad8;/*破線*/
+  border-radius: 9px;
+  margin-left: 10px;/*はみ出ないように調整*/
+  margin-right: 10px;/*はみ出ないように調整*/
+  padding: 0.5em 0.5em 0.5em 2em;
 }
 
 .detail-item {
   width: 20%;
-  background-color: #eee;
+  background-color: #f1f8ff;
   border: 1px solid #dedede;
-  font-size: 14px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -96,13 +106,14 @@
   width: 80%;
   padding: 20px;
   border: 1px solid #dedede;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .option {
   display: flex;
   justify-content: space-between;
   position: relative;
+  margin-top: 30px;
 }
 
 .favorite-btn {

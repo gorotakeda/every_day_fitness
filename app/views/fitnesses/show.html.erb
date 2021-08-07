@@ -1,0 +1,49 @@
+<%= render "shared/header" %>
+
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @fitness.title %>
+    </h2>
+    <table class="detail-table">
+      <tbody>
+      <tr>
+          <th class="detail-item">投稿記事</th>
+          <td class="detail-value"><%= @fitness.info %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">投稿者</th>
+          <td class="detail-value"><%= @fitness.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">カテゴリー</th>
+          <td class="detail-value"><%= @fitness.category.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">対象者</th>
+          <td class="detail-value"><%= @fitness.level.name %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <% if user_signed_in? %>
+     <% if current_user.id == @fitness.user.id %>
+       <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
+        <p class="or-text">or</p>
+       <%= link_to "削除", "#", method: :delete, class:"item-destroy" %>
+     <% end %>
+    <% end %>
+
+    <div class="option">
+      <div class="favorite-btn">
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
+      <div class="report-btn">
+        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+        <span>不適切な情報の通報</span>
+      </div>
+    </div>
+  </div>
+
+<%= render "shared/footer" %>
