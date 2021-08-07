@@ -1,15 +1,11 @@
 <div class="items-sell-contents">
   <header class="items-sell-header">
     <%= link_to image_tag('danberu.png' , size: '185x100'), "/" %>
-
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">投稿内容入力</h2>
     <%= form_with  model: @fitness, local: true do |f| %>
-
-
     <%= render 'shared/error_messages', model: f.object %>
-
     <div class="new-items">
       <div class="weight-bold-text">
         タイトル
@@ -25,7 +21,6 @@
       </div>
     </div>
     <div class="items-detail">
-      
       <div class="form">
         <div class="weight-bold-text">
           カテゴリー
@@ -45,7 +40,6 @@
     </div>
   </div>
   <% end %>
-
   <footer class="items-sell-footer">
     <ul class="menu">
       <li><a href="#">プライバシーポリシー</a></li>
