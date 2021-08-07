@@ -30,7 +30,7 @@
      <% if current_user.id == @fitness.user.id %>
        <%= link_to "商品の編集", edit_fitness_path(@fitness.id), method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
-       <%= link_to "削除", "#", method: :delete, class:"item-destroy" %>
+       <%= link_to "削除", fitness_path(@fitness.id), method: :delete, class:"item-destroy" %>
      <% end %>
     <% end %>
 

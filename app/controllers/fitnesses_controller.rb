@@ -1,6 +1,6 @@
 class FitnessesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_fitness, only: [:show, :edit, :update]
+  before_action :set_fitness, only: [:show, :edit, :update, :destroy]
   def index
     @fitnesses = Fitness.includes(:user).order('created_at DESC')
   end
@@ -31,6 +31,13 @@ class FitnessesController < ApplicationController
       redirect_to fitness_path
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @fitness.user_id = current_user.id
+      @fitness.destroy
+      redirect_to root_path
     end
   end
 
