@@ -41,6 +41,7 @@ class FitnessesController < ApplicationController
     end
   end
 
+
  private
 
   def fitness_params
