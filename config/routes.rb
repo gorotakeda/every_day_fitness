@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'fitnesses#index'
   resources :fitnesses
   resources :users, only: :show
+  resources :rooms, only: [:new, :create]
 end
