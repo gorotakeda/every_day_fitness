@@ -13,7 +13,7 @@
         </tr>
         <tr>
           <th class="detail-item">投稿者</th>
-          <td class="detail-value"><%= @fitness.user.nickname %></td>
+          <td class="detail-value"><%= link_to @fitness.user.nickname + "　＜投稿一覧へ＞", user_path(@fitness.user.id) %></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
@@ -38,10 +38,6 @@
       <div class="favorite-btn">
         <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
         <span>お気に入り 0</span>
-      </div>
-      <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な情報の通報</span>
       </div>
     </div>
   </div>
