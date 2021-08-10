@@ -7,9 +7,5 @@ FactoryBot.define do
     profile               { Faker::Lorem.sentence }
     last_name             { '武田' }
     first_name            { '吾郎' }
-    
-    after(:build) do |user|
-      user.image.attach(io: File.open('public/image/staff1.jpg'), filename: 'staff1.jpg')
-    end
   end
 end 

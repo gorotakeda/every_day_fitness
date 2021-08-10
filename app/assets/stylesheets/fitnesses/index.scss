@@ -8,7 +8,7 @@ a {
 
 
 .title-contents {
-  width: 100vw;
+
   height: 30vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -45,7 +45,6 @@ a {
 
 .select-reason-contents>.title::after {
   content: '';
-  width: 100vh;
   height: 4px;
   background-color: #3ccace;
   position: absolute;
@@ -126,7 +125,6 @@ a {
 }
 
 .item-lists {
-  width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
