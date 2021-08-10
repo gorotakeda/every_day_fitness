@@ -5,7 +5,9 @@
 <div class="item-show">
   <div class="item-box">
     <div class="item-explain-box">
+    <%= link_to edit_user_registration_path do %>
       <span><%= @user.nickname + "さんの情報" %></span>
+    <% end %>
     </div>
     <table class="detail-table">
       <tbody>
