@@ -4,9 +4,10 @@
   </header>
 <div class="item-show">
   <div class="item-box">
-    <%= link_to image_tag(@user.image, class: "item-img-user" ), "#" %>
     <div class="item-explain-box">
+    <%= link_to edit_user_registration_path do %>
       <span><%= @user.nickname + "さんの情報" %></span>
+    <% end %>
     </div>
     <table class="detail-table">
       <tbody>
@@ -23,6 +24,7 @@
     </table>
   </div>
   <div class='item-contents-user'>
+    <div class='item-contents'>
     <div class="subtitle" >
       <%= @user.nickname + "さんの投稿一覧"%>
     </div>
@@ -44,5 +46,5 @@
         <% end %>
       </li>
       <% end %>
-
-<%= render "shared/footer" %>
+    </ul>
+  </div>

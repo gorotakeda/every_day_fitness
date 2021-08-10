@@ -99,11 +99,6 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('First name is invalid. Input full-width characters.')
       end
-      it '画像が空では登録できないこと' do
-        @user.image = nil
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Image can't be blank")
-      end
     end
   end
 end
