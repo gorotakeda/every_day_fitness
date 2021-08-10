@@ -3,23 +3,22 @@ a {
 }
 
 .main {
-  background: #f8f8f8;
+  background: #fff;
 }
 
 
 .title-contents {
   width: 100vw;
-  height: 60vh;
-  background-image: image-url('gym.png');
+  height: 30vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   padding: 5vh 15vw;
-  color: #fff;
+  color: rgb(8, 8, 8);
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
 
@@ -105,7 +104,7 @@ a {
 
 
 .item-contents {
-  background-color: #FFF;
+  background-color: #F8F8F8;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,12 +130,13 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
 
 .item-lists>.list {
   width: 37vh;
   padding: 1vw;
-  background-color: #FFF;
+  background-color: #F8F8F8;
 }
 
 

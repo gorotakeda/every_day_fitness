@@ -13,7 +13,7 @@
         </tr>
         <tr>
           <th class="detail-item">投稿者</th>
-          <td class="detail-value"><%= @fitness.user.nickname %></td>
+          <td class="detail-value"><%= link_to @fitness.user.nickname + "　＜投稿一覧＞", user_path(@fitness.user.id) %></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
@@ -33,15 +33,11 @@
        <%= link_to "削除", fitness_path(@fitness.id), method: :delete, class:"item-destroy" %>
      <% end %>
     <% end %>
-    <%= link_to  @fitness.user.nickname + "さんの投稿一覧ページはこちら" , user_path(@fitness.user.id), class: "item-red-btn"  %>
+    <%= link_to "チャットページ" , room_path(room_url), class: "item-red-btn"  %>
     <div class="option">
       <div class="favorite-btn">
         <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
         <span>お気に入り 0</span>
-      </div>
-      <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な情報の通報</span>
       </div>
     </div>
   </div>

@@ -1,0 +1,23 @@
+<%# cssは商品出品のものを併用しています。
+app/assets/stylesheets/items/new.css %>
+   <div class="main-header">
+     <div class="left-header">
+       <div class="chat-name">
+         Chat room
+       </div>
+     </div>
+     <div class="right-header">
+       <div class="chat-end">
+          <%= link_to 'チャットを終了する', "/" %>
+       </div>
+     </div>
+    </div>
+ <div id ='messages'>
+    <%= render @messages %>
+ </div>
+ <div class="form-input">
+      <div class = "form-message">
+       <form><label>コメント:</label><br><input type = "text" data-behavior = "room_speaker"></form>
+     </div>
+  </div>
+
