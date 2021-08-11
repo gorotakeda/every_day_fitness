@@ -3,7 +3,7 @@ class Fitness < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :level
-
+  has_many :likes
 
   with_options presence: true do
    validates :title

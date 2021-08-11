@@ -25,7 +25,16 @@
         </tr>
       </tbody>
     </table>
-
+<div class="option">
+      <div class="favorite-btn">
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <% if current_user.liked_by?(@fitness.id) %>
+            <td><%= link_to 'いいねを外す', destroy_like_path(@fitness), method: :DELETE %></td>
+          <% else %>
+            <td><%= link_to 'いいね', create_like_path(@fitness), method: :POST %></td>
+          <% end %>
+      </div>
+    </div>
     <% if user_signed_in? %>
      <% if current_user.id == @fitness.user.id %>
        <%= link_to "編集", edit_fitness_path(@fitness.id), method: :get, class: "item-red-btn" %>
@@ -34,10 +43,5 @@
      <% end %>
     <% end %>
     <%= link_to "チャットページ" , room_path(room_url), class: "item-red-btn"  %>
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-    </div>
+    
   </div>
