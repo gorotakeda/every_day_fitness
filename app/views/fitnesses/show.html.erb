@@ -25,19 +25,16 @@
         </tr>
       </tbody>
     </table>
-
-    <% if user_signed_in? %>
+     <div class="options">
+        <tr id="fitness_<%= @fitness.id %>">
+        <%= render "shared/fitness" %>
+        </tr>
+        <% if user_signed_in? %>
      <% if current_user.id == @fitness.user.id %>
        <%= link_to "編集", edit_fitness_path(@fitness.id), method: :get, class: "item-red-btn" %>
-        <p class="or-text">or</p>
        <%= link_to "削除", fitness_path(@fitness.id), method: :delete, class:"item-destroy" %>
      <% end %>
     <% end %>
-    <%= link_to "チャットページ" , room_path(room_url), class: "item-red-btn"  %>
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-    </div>
+       </div>
+     </div>
   </div>

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :fitnesses
   has_many :rooms, dependent: :destroy
+  has_many :likes
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -25,5 +26,9 @@ class User < ApplicationRecord
               result = update_attributes(params, *options)
               clean_up_passwords
               result
+            end
+
+            def liked_by?(fitness_id)
+              likes.where(fitness_id: fitness_id).exists?
             end
 end
