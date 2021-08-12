@@ -36,5 +36,26 @@
      <% end %>
     <% end %>
        </div>
+  <div class="comment-box">
+  <ul class="comments_lists">
+          <% @comments.each do |comment| %>
+            <li class="comments_list">
+              <%= comment.text %>
+              <%= link_to comment.user.nickname, user_path(comment.user.id), class: :comment_user %>
+            </li>
+          <% end %>
+        </ul>
+    <%= form_with model: [@fitness, @comment],local: true do |f|%>
+      <div class="field">
+       <%= f.text_field :text, id:"comment_text" %>
+      </div>
+          <form>
+              <button type="submit" class="comment-btn">
+                     <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+                 <span>コメントする<span>
+            </button>
+          </form>
+        <% end %>
+       </div>
      </div>
-  </div>
+</div>
