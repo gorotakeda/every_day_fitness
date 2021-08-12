@@ -37,44 +37,23 @@
   object-fit: contain;
 }
 
-.item-price-box {
-  margin: 25px 0px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.options {
+  margin-top: 30px;
 }
-
-.item-price-box>.item-price {
-  font-size: 4vh;
-  font-weight: bold;
-}
-
-.item-price-box>.item-postage {
-  font-size: 16px;
-}
-
 
 .item-red-btn {
-  text-align: center;
-  background-color: #ea352d;
-  font-size: 24px;
-  font-weight: bold;
-  color: #FFF;
-  margin: 20px 0px;
-  padding: 2vh 10vw;
-}
 
-.or-text {
   font-size: 20px;
+  font-weight: bold;
+  color: black;
+  margin-left: 300px;
 }
 
 .item-destroy {
-  background-color: #f1f8ff;
-  text-align: center;
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: bold;
   color: black;
-  margin: 20px 0px;
-  padding: 2vh 10vw;
+  margin-left: 10px;
 }
 
 .item-explain-box {
@@ -107,14 +86,6 @@
   border: 1px solid #dedede;
   font-size: 20px;
 }
-
-.option {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-top: 30px;
-}
-
 
 .report-btn {
   border-radius: 40px;
