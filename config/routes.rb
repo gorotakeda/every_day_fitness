@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
   devise_for :users, controllers: {registrations: 'registrations'}
   root to: 'fitnesses#index'
-  resources :fitnesses
+  resources :fitnesses do
+    resources :comments, only: :create
+  end
   resources :users, only: :show
   resources :rooms, only: :show
   post 'like/:id' => 'likes#create', as: 'create_like'

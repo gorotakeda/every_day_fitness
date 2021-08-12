@@ -19,7 +19,8 @@ class FitnessesController < ApplicationController
   end
 
   def show
-
+    @comment = Comment.new
+    @comments = @fitness.comments.includes(:user)
   end
 
   def edit

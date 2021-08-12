@@ -4,6 +4,7 @@ class Fitness < ApplicationRecord
   belongs_to :category
   belongs_to :level
   has_many :likes
+  has_many :comments, dependent: :destroy
 
   with_options presence: true do
    validates :title

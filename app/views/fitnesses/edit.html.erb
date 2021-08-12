@@ -43,7 +43,7 @@ app/assets/stylesheets/items/new.css %>
     </div>
     <div class="sell-btn-contents">
       <%= f.submit "変更する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', "#", class:"back-btn" %>
+      <%=link_to 'もどる', fitness_path(@fitness.id), method: :get, class:"back-btn" %>
     </div>
   </div>
   <% end %>
