@@ -1,20 +1,20 @@
 # アプリケーション名
  EVERY_DAY_FITNESS
 # アプリケーション概要
- フィットネス情報に特化した投稿ができるアプリ。また、ユーザー同士でコミュニケーションが取れる。
+ フィットネスに特化した情報が投稿できるアプリ。
 # URL
  https://every-day-fitness.herokuapp.com/
 # テスト用アカウント
 Basic認証: ユーザー名「goro」 パスワード 「1209」
 # 利用方法
- userはfitnessに関する投稿ができて、編集、削除をすることができる。また、気になったuserとメッセージのやり取りができる。
+ userはfitnessに関する投稿ができて、編集、削除をすることができる。また、気になった投稿に対してコメントしてコミュニケーションが取れる。
 # 目指した課題解決
-投稿される内容はフィットネスに関する情報のみ。詳しく内容を聞きたい場合は気軽にチャットできる。これらのことから今までダイエットに挫折してきた人が正しい知識を得て健康になることができる。
+ダイエット、健康になるための食事等の知識を得ることができる。
 # 洗い出した要件
 |機能|目的|詳細|ストーリー|
 |----|---|---|---------|
-|DB設計|アプリ作成の全体像を把握するため|作成テーブル users,fitness,rooms,messages,room_users|   |
-|チャット機能|ユーザーと同士がコミュニケーションを取るため|トップページのチャットするから、チャット作成画面に遷移し、選択したユーザーとルームを作成しそこでチャットできる。日付、画像、文字を投稿できる。|fitnessトップページから『チャットする』を選択するとチャットページに遷移する。|
+|DB設計|アプリ作成の全体像を把握するため|作成テーブル users,fitness,comment|   |
+|コメント機能|ユーザーと同士がコミュニケーションを取るため|投稿詳細ページにフォーマットを設置、コメントすることできる。|fitnessトップページから投稿を選択すると詳細ページに遷移し、詳細ページのコメント欄からコメント入力する。|
 |ユーザー管理機能|deviseを用いたユーザー管理機能|新規登録、ログイン、ログアウトができる。ログイン時はログアウト表示がでる。|チャットしたい人、fitnessの投稿をしたい人は新規登録、ログインする必要がある。|
 |fitness投稿、一覧表示機能|ユーザーが見てみたい投稿を選びやすくするため。|一覧ではnickname、level、titleを表示させる。|投稿するとトップページに遷移し、投稿内容が見ることができる。|
 |新規fitness投稿機能|ダイエット、食事等フィットネスに関係する役立つ情報を発信するため。|新規投稿ではtitle、level、category、infoを登録して投稿ボタンを押すと投稿一覧ページに遷移し、投稿が表示されているようにする。|一覧ページの「投稿」から新規投稿ページに遷移し、フィットネスに関する新規情報登録を行う。|
@@ -25,13 +25,11 @@ fitness投稿削除機能|投稿をDBから削除するため。|ログイン中
 # 実装予定の機能
 |機能|目的|詳細|ストーリー|
 |----|---|---|--------|
-|ユーザー情報編集機能|ユーザーの情報を更新するため。|ログイン中のユーザーかつ、本人のみユーザー詳細情報表示機能からユーザー情報編集ページに遷移することができ。編集ではnicknameとinfoを編集することができる。||
 |投稿検索機能|見たい投稿がすぐに検索できるようにするため。|ユーザーはトップページ上部の検索欄から見たい内容を検索することができる|ユーザーが検索欄から自分にあった投稿を見つけやすくする。|
-|投稿にいいねする機能|自分のお気に入りの投稿にリアクションするため。|ログイン中のユーザーは投稿詳細ページで投稿内容が気に入ればいいねボタンをおしてリアクションすることができる。||
 # ローカルでの動作方法
 
 # テーブル設計
-[![Image from Gyazo](https://i.gyazo.com/ecd3a88d1c60a78e5d973f86e02de9ce.png)](https://gyazo.com/ecd3a88d1c60a78e5d973f86e02de9ce)
+[![Image from Gyazo](https://i.gyazo.com/b1905660b805fc45e18e46792f168b78.png)](https://gyazo.com/b1905660b805fc45e18e46792f168b78)
 ## users テーブル
 | Column                | Type   | Options      |
 |-----------------------|--------|--------------|
@@ -42,9 +40,7 @@ fitness投稿削除機能|投稿をDBから削除するため。|ログイン中
 | first_name            | string | null: false  |
 | profile               | text   | null: false  |
 ### Association
-- has_many :room_users
-- has_many :rooms, through: :room_users
-- has_many :messages
+- has_many :comments
 - has_many :fitnesses
 
 ## fitnessesテーブル
@@ -60,40 +56,17 @@ fitness投稿削除機能|投稿をDBから削除するため。|ログイン中
 ### Association
 
 - belongs_to :user
+- has_many   :comments
 
-## rooms テーブル
-
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
-
-### Association
-
-- has_many :room_users
-- has_many :users, through: :room_users
-- has_many :messages
-
-## room_users テーブル
-
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :room
-- belongs_to :user
-
-## messages テーブル
+## comments テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| content | string     |                                |
+| text    | text       |                                |
 | user    | references | null: false, foreign_key: true |
-| room    | references | null: false, foreign_key: true |
+| fitness | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :room
+- belongs_to :fitness
 - belongs_to :user
