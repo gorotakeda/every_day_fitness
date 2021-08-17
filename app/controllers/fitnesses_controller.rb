@@ -1,8 +1,10 @@
 class FitnessesController < ApplicationController
   before_action :authenticate_user!, except: :index
   before_action :set_fitness, only: [:show, :edit, :update, :destroy]
+  before_action :search_product, only: [:index, :search, :show]
   def index
     @fitnesses = Fitness.includes(:user).order('created_at DESC')
+    set_fitness_column
   end
 
   def new
@@ -21,6 +23,7 @@ class FitnessesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @fitness.comments.includes(:user)
+    set_fitness_column
   end
 
   def edit
@@ -42,6 +45,10 @@ class FitnessesController < ApplicationController
     end
   end
 
+  def search
+    @results = @p.result
+  end
+
 
  private
 
@@ -51,6 +58,14 @@ class FitnessesController < ApplicationController
 
   def set_fitness
     @fitness = Fitness.find(params[:id])
+  end
+
+  def search_product
+    @p = Fitness.ransack(params[:q])
+  end
+
+  def set_fitness_column
+    @fitness_name = Fitness.select("title").distinct
   end
 
 end
